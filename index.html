@@ -38,11 +38,16 @@
     .img3 { bottom: 20%; right: 15%; width: 250px; }
 
     /* STATEMENT */
+    .statement {
+      align-items: flex-start;
+      padding-top: 30vh;
+    }
+
     .statement h2 {
       font-size: 50px;
-      text-align: center;
+      text-align: left;
       line-height: 1.3;
-      max-width: 800px;
+      max-width: 600px;
     }
 
     .statement img {
@@ -52,11 +57,15 @@
       opacity: 0.9;
     }
 
+    #movingText {
+      transition: transform 0.1s ease-out;
+    }
+
     /* QUOTE */
     .quote {
       flex-direction: column;
-      text-align: right;
       align-items: flex-end;
+      text-align: right;
       padding-right: 15%;
     }
 
@@ -98,14 +107,7 @@
       background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
       pointer-events: none;
     }
-.statement {
-  align-items: flex-start;
-  padding-top: 30vh;
-}
 
-#movingText {
-  transition: transform 0.1s ease-out;
-}
   </style>
 </head>
 
@@ -121,7 +123,7 @@
 </section>
 
 <!-- SECTION 2 -->
-<section class="section statement">
+<section class="statement">
   <h2 id="movingText">
     I MAKE THINGS<br>
     THE WAY I THINK<br>
@@ -130,29 +132,13 @@
 
   <img src="https://images.unsplash.com/photo-1590080876095-cbb4a4b3d74f">
 </section>
-<script>
-window.addEventListener("scroll", function() {
-  const section = document.querySelector(".statement");
-  const text = document.getElementById("movingText");
 
-  const rect = section.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-
-  // only move when section is visible
-  if (rect.top < windowHeight && rect.bottom > 0) {
-    let progress = (windowHeight - rect.top) / windowHeight;
-
-    text.style.transform = `translateY(${progress * 80}px)`;
-  }
-});
-</script>
-  
 <!-- SECTION 3 -->
 <section class="quote">
   <p>
-    “A brand isn’t what you show—it’s what people feel when you’re gone.”
+    “A brand isn’t what you show — it’s what people feel when you’re gone.”
   </p>
-  <span>COLETTE NOLL</span>
+  <span>— UNKNOWN</span>
 </section>
 
 <!-- SECTION 4 -->
@@ -163,6 +149,22 @@ window.addEventListener("scroll", function() {
   <img src="https://images.unsplash.com/photo-1600181952155-2e0cbb8e2e1c" class="brand-img1">
   <img src="https://images.unsplash.com/photo-1600181952250-bc7a7f4c8e8e" class="brand-img2">
 </section>
+
+<script>
+window.addEventListener("scroll", function() {
+  const section = document.querySelector(".statement");
+  const text = document.getElementById("movingText");
+
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    let progress = (windowHeight - rect.top) / windowHeight;
+
+    text.style.transform = `translateY(${progress * 120}px)`;
+  }
+});
+</script>
 
 </body>
 </html>

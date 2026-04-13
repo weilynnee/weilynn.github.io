@@ -23,32 +23,37 @@
     }
 
     /* HERO */
-    .hero h1 {
-      font-size: 110px;
-      letter-spacing: 4px;
-    }
+.hero h1 {
+  font-size: 110px;
+  letter-spacing: 4px;
+  position: relative;
+  z-index: 2;
+}
 
-    .hero img {
-      position: absolute;
-      width: 220px;
-    }
+.hero img {
+  position: absolute;
+  z-index: 1;
+}
+
+/* HERO IMAGES — FINAL LAYOUT */
 
 .img1 {
-  width: 380px;
-  bottom: 10%;
-  left: 15%;
+  width: 420px;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .img2 {
-  width: 220px;
-  top: 18%;
+  width: 200px;
+  top: 15%;
   right: 18%;
 }
 
 .img3 {
-  width: 180px;
-  top: 5%;
-  right: 8%;
+  width: 220px;
+  bottom: 15%;
+  right: 10%;
 }
 
     /* STATEMENT */

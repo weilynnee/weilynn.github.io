@@ -117,9 +117,9 @@
 <section class="hero">
   <h1>A NOBODY</h1>
 
-  <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6" class="img1">
-  <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" class="img2">
-  <img src="https://images.unsplash.com/photo-1593032465171-8f57b6c9a3b6" class="img3">
+  <img src="https://picsum.photos/300/400?random=1" class="img1">
+  <img src="https://picsum.photos/400/500?random=2" class="img2">
+  <img src="https://picsum.photos/300/450?random=3" class="img3">
 </section>
 
 <!-- SECTION 2 -->
@@ -156,9 +156,13 @@ window.addEventListener("scroll", function() {
   const text = document.getElementById("movingText");
 
   const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
 
-  // move text opposite direction (you WILL see this)
-  text.style.transform = `translateY(${rect.top * -0.5}px)`;
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    let progress = (windowHeight - rect.top) / windowHeight;
+
+    text.style.transform = `translateY(${progress * 120}px)`;
+  }
 });
 </script>
 

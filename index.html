@@ -156,13 +156,9 @@ window.addEventListener("scroll", function() {
   const text = document.getElementById("movingText");
 
   const rect = section.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
 
-  if (rect.top < windowHeight && rect.bottom > 0) {
-    let progress = (windowHeight - rect.top) / windowHeight;
-
-    text.style.transform = `translateY(${progress * 120}px)`;
-  }
+  // move text opposite direction (you WILL see this)
+  text.style.transform = `translateY(${rect.top * -0.5}px)`;
 });
 </script>
 

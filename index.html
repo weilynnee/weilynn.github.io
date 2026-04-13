@@ -98,7 +98,14 @@
       background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
       pointer-events: none;
     }
+.statement {
+  align-items: flex-start;
+  padding-top: 30vh;
+}
 
+#movingText {
+  transition: transform 0.1s ease-out;
+}
   </style>
 </head>
 
@@ -125,10 +132,18 @@
 </section>
 <script>
 window.addEventListener("scroll", function() {
+  const section = document.querySelector(".statement");
   const text = document.getElementById("movingText");
-  let scrollY = window.scrollY;
 
-  text.style.transform = `translateY(${scrollY * 0.3}px)`;
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  // only move when section is visible
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    let progress = (windowHeight - rect.top) / windowHeight;
+
+    text.style.transform = `translateY(${progress * 80}px)`;
+  }
 });
 </script>
   

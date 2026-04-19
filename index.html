@@ -64,7 +64,7 @@
     .statement {
       height: 180vh;
       align-items: flex-start;
-      padding-top: 20vh;
+      padding-top: 40vh;
       overflow: hidden;
     }
 
@@ -189,8 +189,9 @@ function updateParallax() {
   const sectionScroll = clamp(-rect.top, 0, section.offsetHeight);
   const scrollRange = Math.max(section.offsetHeight - windowHeight, 1);
   const normalizedScroll = clamp(sectionScroll / scrollRange, 0, 1);
-  const maxTextTravel = Math.max(scrollRange * 0.9, 0);
-  const textTravel = normalizedScroll * maxTextTravel;
+  const easedScroll = 1 - Math.pow(1 - normalizedScroll, 2);
+  const maxTextTravel = Math.max(section.offsetHeight - text.offsetHeight - 80, 0);
+  const textTravel = easedScroll * maxTextTravel;
 
   /* TEXT */
   text.style.transform = `translateY(${textTravel}px)`;
